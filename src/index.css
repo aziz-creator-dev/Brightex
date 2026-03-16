@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 190 100% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 190 100% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 190 100% 8%;
+
+    --primary: 183 100% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 186 45% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 186 20% 96%;
+    --muted-foreground: 186 30% 35%;
+
+    --accent: 186 55% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 186 20% 88%;
+    --input: 186 20% 88%;
+    --ring: 183 100% 28%;
+
+    --radius: 0.5rem;
+
+    --teal-dark: 183 100% 28%;
+    --teal-mid: 186 45% 45%;
+    --teal-light: 186 55% 55%;
+    --teal-pale: 186 40% 80%;
+    --charcoal: 60 2% 11%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 190 100% 8%;
+    --sidebar-primary: 183 100% 28%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 186 20% 95%;
+    --sidebar-accent-foreground: 190 100% 8%;
+    --sidebar-border: 186 20% 88%;
+    --sidebar-ring: 183 100% 28%;
+  }
+
+  .dark {
+    --background: 190 100% 3%;
+    --foreground: 0 0% 100%;
+
+    --card: 190 20% 8%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 190 20% 8%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 183 100% 33%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 186 45% 57%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 190 15% 15%;
+    --muted-foreground: 186 30% 70%;
+
+    --accent: 186 55% 62%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 190 20% 18%;
+    --input: 190 20% 18%;
+    --ring: 183 100% 33%;
+
+    --sidebar-background: 190 20% 5%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 183 100% 33%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 190 15% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 190 20% 18%;
+    --sidebar-ring: 183 100% 33%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--teal-dark)), hsl(var(--teal-light)));
+  }
+
+  .bg-gradient-teal {
+    background: linear-gradient(135deg, hsl(var(--teal-dark)), hsl(var(--teal-mid)));
+    position: relative;
+  }
+
+  .bg-gradient-dark {
+    background: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+  }
+
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark .glass-card {
+    @apply bg-card/60;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  :root .glass-card {
+    @apply bg-card/80;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  .glow-teal {
+    box-shadow: 0 0 50px -10px hsl(var(--primary) / 0.5);
+  }
+  
+  .dark .glow-teal {
+    box-shadow: 0 0 50px -10px hsl(var(--primary) / 0.5);
+  }
+  
+  :root .glow-teal {
+    box-shadow: 0 0 40px -10px hsl(var(--primary) / 0.3), 0 10px 30px -5px hsl(var(--primary) / 0.2);
+  }
+
+  .line-accent {
+    @apply relative;
+  }
+  .line-accent::after {
+    content: '';
+    @apply absolute bottom-0 left-0 h-[2px] w-16 bg-gradient-teal rounded-full;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.6);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.4);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.6);
+}
+
+:root ::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+}
+:root ::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
