@@ -4,6 +4,7 @@ import AboutSection from "@/components/AboutSection";
 import ProductsSection from "@/components/ProductsSection";
 import WhySection from "@/components/WhySection";
 import GenericSection from "@/components/GenericSection";
+import WhereToBuySection from "@/components/WhereToBuySection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -18,14 +19,7 @@ const Index = () => {
       <HeroSection />
       <AboutSection />
       <ProductsSection />
-      <GenericSection
-        id="where-to-buy"
-        label={t.whereToBuy.label}
-        title={t.whereToBuy.title}
-        titleHighlight={t.whereToBuy.titleHighlight}
-        subtitle={t.whereToBuy.subtitle}
-        dark
-      />
+      <WhereToBuySection />
       <GenericSection
         id="use"
         label={t.use.label}

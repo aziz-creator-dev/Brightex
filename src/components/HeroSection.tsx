@@ -28,7 +28,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="h-[3px] bg-gradient-teal mb-8 rounded-full"
           />
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight leading-[1.05] mb-8 tracking-tight">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extralight leading-[1.05] mb-8 tracking-tight">
             {t.hero.titleLine1}
             <br />
             <span className="text-gradient font-bold">{t.hero.titleLine2}</span>
@@ -37,7 +37,7 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-xl md:text-2xl font-light text-muted-foreground max-w-2xl mb-12 leading-relaxed"
+            className="text-lg md:text-xl font-light text-muted-foreground max-w-2xl mb-12 leading-relaxed"
           >
             {t.hero.subtitle}
           </motion.p>
