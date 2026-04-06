@@ -38,14 +38,18 @@ type Translations = {
     label: string;
     titleStart: string;
     titleHighlight: string;
-    polishingPads: string;
-    polishingPadsDesc: string;
-    cuttingCompounds: string;
-    cuttingCompoundsDesc: string;
-    finishingAccessories: string;
-    finishingAccessoriesDesc: string;
-    surfaceProtection: string;
-    surfaceProtectionDesc: string;
+    padsLabel: string;
+    processLabel: string;
+    heavyCut: string;
+    mediumCut: string;
+    softFoam: string;
+    padVariants: string[];
+    compounding: string;
+    compoundingDesc: string;
+    polishing: string;
+    polishingDesc: string;
+    finishing: string;
+    finishingDesc: string;
   };
   why: {
     label: string;
@@ -149,14 +153,23 @@ const translations: Record<Lang, Translations> = {
       label: "Our Products",
       titleStart: "Engineered for",
       titleHighlight: "Performance",
-      polishingPads: "Polishing Pads",
-      polishingPadsDesc: "High-performance foam and wool pads engineered for cutting, polishing, and finishing with precision.",
-      cuttingCompounds: "Cutting Compounds",
-      cuttingCompoundsDesc: "Professional-grade compounds designed to remove defects and restore paint clarity.",
-      finishingAccessories: "Finishing Accessories",
-      finishingAccessoriesDesc: "Complete range of backing plates, adapters, and tools for professional surface finishing.",
-      surfaceProtection: "Surface Protection",
-      surfaceProtectionDesc: "Advanced sealants and coatings for long-lasting paint protection and hydrophobic finish.",
+      padsLabel: "Polishing Pads",
+      processLabel: "Application Process",
+      heavyCut: "Heavy Cut Foam",
+      mediumCut: "Medium Cut Foam",
+      softFoam: "Soft Foam",
+      padVariants: [
+        "50 mm – Plastic Holder",
+        "50 mm – Velcro",
+        "30 mm – Plastic Holder",
+        "30 mm – Velcro",
+      ],
+      compounding: "Compounding",
+      compoundingDesc: "To grind the clearcoat and remove defects, heavy scratches, and swirl marks.\n• Pott 760k – 50 mm\n• Pott 760k – Wool\n• Pott 760k – 30 mm",
+      polishing: "Polishing / Buffing",
+      polishingDesc: "To restore surface gloss, remove minor scratches from the compound step, and prepare the surface for the final wax or sealant.\n• Pott 580 – 50 mm\n• Pott 580 – 30 mm",
+      finishing: "Finishing / Glazing",
+      finishingDesc: "Remove excess compound, obtain maximum gloss level (light reflection) and apply the wax, oil or other paint sealant.",
     },
     why: {
       label: "Why Brightex",
@@ -258,14 +271,23 @@ const translations: Record<Lang, Translations> = {
       label: "Nos Produits",
       titleStart: "Conçus pour la",
       titleHighlight: "Performance",
-      polishingPads: "Tampons de Polissage",
-      polishingPadsDesc: "Tampons en mousse et en laine haute performance conçus pour le ponçage, le polissage et la finition de précision.",
-      cuttingCompounds: "Pâtes à Polir",
-      cuttingCompoundsDesc: "Composés de qualité professionnelle conçus pour éliminer les défauts et restaurer la clarté de la peinture.",
-      finishingAccessories: "Accessoires de Finition",
-      finishingAccessoriesDesc: "Gamme complète de plateaux, adaptateurs et outils pour la finition professionnelle des surfaces.",
-      surfaceProtection: "Protection de Surface",
-      surfaceProtectionDesc: "Scellants et revêtements avancés pour une protection durable de la peinture et une finition hydrophobe.",
+      padsLabel: "Tampons de Polissage",
+      processLabel: "Processus d'Application",
+      heavyCut: "Mousse Coupe Forte",
+      mediumCut: "Mousse Coupe Moyenne",
+      softFoam: "Mousse Douce",
+      padVariants: [
+        "50 mm – Support Plastique",
+        "50 mm – Velcro",
+        "30 mm – Support Plastique",
+        "30 mm – Velcro",
+      ],
+      compounding: "Compoundage",
+      compoundingDesc: "Pour abraser le vernis et éliminer les défauts, rayures profondes et traces de spirale.\n• Pott 760k – 50 mm\n• Pott 760k – Laine\n• Pott 760k – 30 mm",
+      polishing: "Polissage / Lustrage",
+      polishingDesc: "Pour restaurer l'éclat de la surface, éliminer les micro-rayures de l'étape de compoundage et préparer la surface pour la cire ou le scellant final.\n• Pott 580 – 50 mm\n• Pott 580 – 30 mm",
+      finishing: "Finition / Glaçage",
+      finishingDesc: "Éliminer l'excès de compound, obtenir un niveau de brillance maximal (réflexion de la lumière) et appliquer la cire, l'huile ou tout autre scellant de peinture.",
     },
     why: {
       label: "Pourquoi Brightex",
@@ -367,14 +389,23 @@ const translations: Record<Lang, Translations> = {
       label: "منتجاتنا",
       titleStart: "مصممة من أجل",
       titleHighlight: "الأداء",
-      polishingPads: "أقراص التلميع",
-      polishingPadsDesc: "أقراص إسفنجية وصوفية عالية الأداء مصممة للقطع والتلميع والتشطيب بدقة.",
-      cuttingCompounds: "معاجين القطع",
-      cuttingCompoundsDesc: "مركبات احترافية مصممة لإزالة العيوب واستعادة صفاء الطلاء.",
-      finishingAccessories: "ملحقات التشطيب",
-      finishingAccessoriesDesc: "مجموعة كاملة من الأطباق والمحولات والأدوات لتشطيب الأسطح الاحترافي.",
-      surfaceProtection: "حماية الأسطح",
-      surfaceProtectionDesc: "مواد مانعة للتسرب وطلاءات متقدمة لحماية الطلاء طويلة الأمد وتشطيب مقاوم للماء.",
+      padsLabel: "أقراص التلميع",
+      processLabel: "عملية التطبيق",
+      heavyCut: "إسفنج قطع قوي",
+      mediumCut: "إسفنج قطع متوسط",
+      softFoam: "إسفنج ناعم",
+      padVariants: [
+        "50 mm – حامل بلاستيكي",
+        "50 mm – فيلكرو",
+        "30 mm – حامل بلاستيكي",
+        "30 mm – فيلكرو",
+      ],
+      compounding: "الكمبوند",
+      compoundingDesc: "لطحن طبقة الورنيش وإزالة العيوب والخدوش العميقة وآثار الدوامة.\n• Pott 760k – 50 mm\n• Pott 760k – صوف\n• Pott 760k – 30 mm",
+      polishing: "التلميع / البافينج",
+      polishingDesc: "لاستعادة لمعان السطح وإزالة الخدوش الطفيفة من مرحلة الكمبوند وتحضير السطح للشمع أو المانع النهائي.\n• Pott 580 – 50 mm\n• Pott 580 – 30 mm",
+      finishing: "التشطيب / الجلاء",
+      finishingDesc: "إزالة فائض الكمبوند، الحصول على أقصى مستوى من اللمعان (انعكاس الضوء) وتطبيق الشمع أو الزيت أو أي مانع طلاء آخر.",
     },
     why: {
       label: "لماذا برايتكس",
