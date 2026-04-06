@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { useLanguage, Lang } from "@/contexts/LanguageContext";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { useContactModal } from "@/contexts/ContactModalContext";
 
 const langLabels: Record<Lang, string> = { en: "EN", fr: "FR", ar: "AR" };
 
@@ -12,6 +13,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const { lang, setLang, t } = useLanguage();
+  const { openModal } = useContactModal();
 
   const navLinks = [
     { label: t.nav.home, href: "#hero" },
@@ -96,12 +98,12 @@ const Navbar = () => {
             </AnimatePresence>
           </div>
 
-          <a
-            href="#contact"
+          <button
+            onClick={openModal}
             className="px-6 py-2.5 text-[11px] font-semibold tracking-wider uppercase bg-gradient-teal text-primary-foreground rounded-lg hover:scale-105 transition-all duration-300 hover:shadow-[0_0_30px_-5px_hsl(183_100%_33%/0.5)]"
           >
             {t.nav.getInTouch}
-          </a>
+          </button>
         </div>
 
         {/* Mobile toggle */}

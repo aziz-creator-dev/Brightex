@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useContactModal } from "@/contexts/ContactModalContext";
 
 const Footer = () => {
   const { t } = useLanguage();
+  const { openModal } = useContactModal();
 
   const navLinks = [
     { label: t.nav.home, href: "#hero" },
@@ -146,12 +148,12 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground font-light leading-relaxed mb-5">
               {t.b2b.subtitle.split(".")[0]}.
             </p>
-            <a
-              href="#contact"
+            <button
+              onClick={openModal}
               className="inline-block px-6 py-2.5 text-xs font-semibold tracking-widest uppercase bg-gradient-teal text-white rounded-lg hover:scale-105 hover:shadow-[0_0_25px_-5px_hsl(183_100%_33%/0.5)] transition-all duration-300"
             >
               {t.nav.getInTouch}
-            </a>
+            </button>
           </div>
         </div>
 
